@@ -609,8 +609,8 @@
             ? `<span class="time-cell">${escapeHtml(r.tiempoStr)}</span>`
             : `<span class="status-badge status-${escapeHtml(r.estado)}">${escapeHtml(r.estado)}</span>`;
 
-          const gapHtml = r.estado === 'OK'
-            ? (r.rank === 1 ? 'Líder' : (leaderMs !== null ? '+' + formatGap(r.tiempoMs - leaderMs) : '—'))
+          const gapHtml = (r.estado === 'OK' && r.rank !== 1 && leaderMs !== null)
+            ? (r.tiempoMs === leaderMs ? 'm.t.' : '+' + formatGap(r.tiempoMs - leaderMs))
             : '—';
 
           return `
