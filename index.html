@@ -347,7 +347,6 @@
 
   <header>
     <div class="header-container">
-      <!-- Logos oficiales: se cargan desde el sistema o desde la carpeta ./logos/ del repositorio -->
       <div id="logos-bar" class="logos-bar">
         <div class="logo-group">
           <img id="logo-muni" class="logo-slot" alt="Municipalidad de Pichidegua" style="display:none;">
@@ -420,10 +419,7 @@
   </main>
 
   <script>
-    // =========================================================================
-    // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (terminada en /exec)
-    const API_URL = "https://script.google.com/macros/s/AKfycbxfoJ_4TGqkGmpgPK9T2tTdbyUoo8feNqU1MUANIgq6ZIxyoLl-OT6tYzHftzyQj0Oa/exec?vista=deportistas";
-    // =========================================================================
+    const API_URL = "https://script.google.com/macros/s/AKfycbxfoJ_4TGqkGmpgPK9T2tTdbyUoo8feNqU1MUANIgq6ZIxyoLl-OT6tYzHftzyQj0Oa/exec";
 
     let currentTab = 'startlist';
     let raceData = { categorias: {}, startLists: {}, results: {}, metasVolantes: [], logos: {} };
@@ -472,15 +468,14 @@
       const container = document.getElementById('content-area');
       container.innerHTML = `<div class="state-box"><div class="spinner"></div><p>Sincronizando datos oficiales...</p></div>`;
 
-      if (!API_URL || API_URL.includes("PEGA_AQUI")) {
-        container.innerHTML = `<div class="state-box" style="color:#B91C1C;">Falta configurar la constante <b>API_URL</b> en <code>index.html</code> con el enlace <code>/exec</code> de Google Apps Script.</div>`;
-        return;
-      }
-
       try {
         const response = await fetch(API_URL + "?api=1&t=" + Date.now());
         if (!response.ok) throw new Error("HTTP " + response.status);
         const data = await response.json();
+
+        if (data && data.error) {
+          throw new Error(data.error);
+        }
 
         raceData = data || { categorias: {}, startLists: {}, results: {}, metasVolantes: [], logos: {} };
         applyLogos(raceData.logos);
