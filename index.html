@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giro Pichidegua — La Clásica 2026 | Resultados Oficiales</title>
+  <meta name="description" content="Listados de Partida y Resultados Oficiales en vivo — Giro Pichidegua La Clásica 2026 • Fecha Copa Chile • BM Race Control">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-dark: #002366;
+      --blue-main: #0044CC;
+      --magenta: #E6007E;
+      --lime: #B5E61D;
+      --bg-light: #F4F6FA;
+      --card-bg: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 40px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-main) 65%, #1A1054 100%);
+      color: #FFFFFF;
+      border-bottom: 5px solid var(--magenta);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-container { max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
+
+    .logos-bar {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .logo-group { display: flex; align-items: center; gap: 10px; }
+
+    .logo-slot {
+      height: 48px;
+      max-width: 155px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 4px 8px;
+    }
+
+    .logo-event { height: 64px; max-width: 230px; object-fit: contain; }
+
+    .event-title-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .title-info { text-align: left; }
+
+    .event-badge {
+      display: inline-block;
+      background-color: var(--lime);
+      color: var(--blue-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .bm-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(181, 230, 29, 0.6);
+      color: var(--lime);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      margin-bottom: 6px;
+    }
+
+    .title-info h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: 1.55rem;
+      text-transform: uppercase;
+    }
+
+    .title-info p { font-size: 0.85rem; color: #CBD5E1; margin-top: 2px; }
+
+    .live-clock-box {
+      background: rgba(0, 15, 45, 0.45);
+      border: 1.5px solid rgba(181, 230, 29, 0.45);
+      padding: 8px 18px;
+      border-radius: 12px;
+      text-align: right;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      min-width: 165px;
+    }
+
+    .live-clock-box small {
+      display: block;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .live-clock-box strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: #FFFFFF;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav-tabs {
+      display: flex;
+      background-color: #FFFFFF;
+      max-width: 1100px;
+      margin: -1px auto 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 15px 10px;
+      border: none;
+      background: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 4px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover { color: var(--blue-main); background-color: #F8FAFC; }
+    .tab-btn.active { color: var(--blue-dark); border-bottom-color: var(--magenta); background-color: #FFF5FA; }
+
+    .main-container { max-width: 1100px; margin: 20px auto; padding: 0 16px; }
+
+    .controls-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: grid;
+      grid-template-columns: 1.4fr 1fr auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+
+    .control-group { display: flex; flex-direction: column; gap: 5px; }
+
+    .control-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-main);
+      background-color: #FFFFFF;
+      outline: none;
+    }
+
+    select:focus, input[type="text"]:focus { border-color: var(--blue-main); }
+
+    .btn-refresh {
+      padding: 10px 16px;
+      background-color: var(--blue-main);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      height: 41px;
+    }
+
+    .btn-refresh:hover { background-color: var(--blue-dark); }
+
+    .category-banner {
+      background: var(--blue-dark);
+      color: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-left: 6px solid var(--lime);
+    }
+
+    .category-banner h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; text-transform: uppercase; }
+    .category-meta { font-size: 0.8rem; color: #CBD5E1; margin-top: 2px; }
+    .count-pill { background: rgba(255, 255, 255, 0.16); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+    .table-card {
+      background: var(--card-bg);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
+
+    table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    thead { background-color: #F1F5F9; border-bottom: 2px solid var(--border-color); }
+    th { padding: 12px 14px; text-align: left; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border-color); font-size: 0.9rem; }
+    tbody tr:hover { background-color: #F8FAFC; }
+
+    .pos-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      background-color: #E2E8F0;
+    }
+
+    .pos-1 { background-color: #FACC15; color: #713F12; }
+    .pos-2 { background-color: #CBD5E1; color: #1E293B; }
+    .pos-3 { background-color: #D97706; color: #FFFFFF; }
+    .pos-top5 { background-color: var(--blue-main); color: #FFFFFF; }
+
+    .dorsal-tag {
+      display: inline-block;
+      background-color: var(--blue-dark);
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 3px 9px;
+      border-radius: 5px;
+      min-width: 44px;
+      text-align: center;
+    }
+
+    .rider-name { font-weight: 700; color: var(--text-main); display: block; }
+    .rider-sub { font-size: 0.78rem; color: var(--text-muted); }
+    .time-cell { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--blue-dark); white-space: nowrap; }
+    .gap-cell { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; white-space: nowrap; }
+
+    .status-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+    .status-DNF { background-color: #FEF3C7; color: #B45309; }
+    .status-DNS { background-color: #F1F5F9; color: #475569; }
+    .status-DSQ { background-color: #FEE2E2; color: #B91C1C; }
+
+    .rules-footer {
+      background: #FFFFFF;
+      border-left: 4px solid var(--magenta);
+      padding: 13px 16px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .bm-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .state-box {
+      background: #FFFFFF;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px;
+      color: var(--text-muted);
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 4px solid #E2E8F0;
+      border-top-color: var(--magenta);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 720px) {
+      .controls-card { grid-template-columns: 1fr; }
+      .logos-bar { justify-content: center; }
+      .event-title-box { flex-direction: column; text-align: center; }
+      .title-info { text-align: center; }
+      .title-info h1 { font-size: 1.25rem; }
+      .live-clock-box { text-align: center; width: 100%; }
+      .tab-btn { font-size: 0.8rem; padding: 13px 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <!-- Logos oficiales: se cargan desde el sistema o desde la carpeta ./logos/ del repositorio -->
+      <div id="logos-bar" class="logos-bar">
+        <div class="logo-group">
+          <img id="logo-muni" class="logo-slot" alt="Municipalidad de Pichidegua" style="display:none;">
+        </div>
+        <div class="logo-group">
+          <img id="logo-evento" class="logo-event" alt="Giro Pichidegua La Clásica" style="display:none;">
+        </div>
+        <div class="logo-group">
+          <img id="logo-cmd" class="logo-slot" alt="CMD Pichidegua" style="display:none;">
+          <img id="logo-fed" class="logo-slot" alt="Federación de Ciclismo" style="display:none;">
+        </div>
+      </div>
+
+      <div class="event-title-box">
+        <div class="title-info">
+          <span class="event-badge">21 y 22 de Noviembre • Fecha Copa Chile</span>
+          <span class="bm-badge">BM Race Control</span>
+          <h1>Giro Pichidegua — La Clásica 2026</h1>
+          <p>¡Vuelve la Caravana Multicolor! • Consulta Oficial de Deportistas</p>
+        </div>
+
+        <div class="live-clock-box">
+          <small>Reloj Oficial Meta</small>
+          <strong id="live-clock">00:00:00</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <button id="tab-startlist" class="tab-btn active" onclick="switchTab('startlist')">
+      📋 Listados de Partida
+    </button>
+    <button id="tab-results" class="tab-btn" onclick="switchTab('results')">
+      🏆 Resultados Oficiales
+    </button>
+  </nav>
+
+  <main class="main-container">
+    <section class="controls-card">
+      <div class="control-group">
+        <label for="category-select">Categoría</label>
+        <select id="category-select" onchange="renderView()"></select>
+      </div>
+
+      <div class="control-group">
+        <label for="search-input">Buscar Corredor (Dorsal, Nombre, UCI ID o Club)</label>
+        <input type="text" id="search-input" placeholder="Ej: 101, Juan Pérez, Pichidegua..." oninput="renderView()">
+      </div>
+
+      <button class="btn-refresh" onclick="loadData()">↻ Actualizar</button>
+    </section>
+
+    <div id="content-area">
+      <div class="state-box">
+        <div class="spinner"></div>
+        <p>Cargando información oficial de competencia...</p>
+      </div>
+    </div>
+
+    <div id="sprint-area"></div>
+
+    <div class="rules-footer">
+      <strong>Información Reglamentaria:</strong> Los corredores Junior y Máster "A" Varones disputan podio de su categoría (1° al 3°) y además clasificación general <em>Todo Competidor Varones</em> (1° al 5°). Junior Damas y Open Damas disputan podio de su categoría (1° al 3°) y <em>Todo Competidor Damas</em> (1° al 5°). Es obligatorio presentarse con vestimenta de ciclista a la ceremonia de premiación.
+    </div>
+
+    <div class="bm-footer">
+      Sistema Oficial de Cronometraje y Resultados — <strong>BM Race Control</strong>
+    </div>
+  </main>
+
+  <script>
+    // =========================================================================
+    // PEGA AQUÍ LA URL DE TU APLICACIÓN WEB DE GOOGLE APPS SCRIPT (terminada en /exec)
+    const API_URL = "https://script.google.com/macros/s/AKfycbxfoJ_4TGqkGmpgPK9T2tTdbyUoo8feNqU1MUANIgq6ZIxyoLl-OT6tYzHftzyQj0Oa/exec?vista=deportistas";
+    // =========================================================================
+
+    let currentTab = 'startlist';
+    let raceData = { categorias: {}, startLists: {}, results: {}, metasVolantes: [], logos: {} };
+
+    function formatNow(d) {
+      return [d.getHours(), d.getMinutes(), d.getSeconds()]
+        .map(n => n < 10 ? '0' + n : String(n))
+        .join(':');
+    }
+
+    function updateLiveClock() {
+      const clockEl = document.getElementById('live-clock');
+      if (clockEl) clockEl.textContent = formatNow(new Date());
+    }
+
+    updateLiveClock();
+    setInterval(updateLiveClock, 500);
+
+    window.addEventListener('DOMContentLoaded', loadData);
+
+    function applyLogos(logos) {
+      const bar = document.getElementById('logos-bar');
+      if (!bar) return;
+
+      const slots = ['muni', 'evento', 'cmd', 'fed'];
+      let anyVisible = false;
+
+      slots.forEach(k => {
+        const img = document.getElementById('logo-' + k);
+        const src = (logos && logos[k]) ? logos[k] : '';
+        if (img) {
+          if (src) {
+            img.src = src;
+            img.style.display = 'inline-block';
+            anyVisible = true;
+          } else {
+            img.style.display = 'none';
+          }
+        }
+      });
+
+      bar.style.display = anyVisible ? 'flex' : 'none';
+    }
+
+    async function loadData() {
+      const container = document.getElementById('content-area');
+      container.innerHTML = `<div class="state-box"><div class="spinner"></div><p>Sincronizando datos oficiales...</p></div>`;
+
+      if (!API_URL || API_URL.includes("PEGA_AQUI")) {
+        container.innerHTML = `<div class="state-box" style="color:#B91C1C;">Falta configurar la constante <b>API_URL</b> en <code>index.html</code> con el enlace <code>/exec</code> de Google Apps Script.</div>`;
+        return;
+      }
+
+      try {
+        const response = await fetch(API_URL + "?api=1&t=" + Date.now());
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+
+        raceData = data || { categorias: {}, startLists: {}, results: {}, metasVolantes: [], logos: {} };
+        applyLogos(raceData.logos);
+        populateCategories();
+        renderView();
+      } catch (err) {
+        container.innerHTML = `<div class="state-box" style="color:#B91C1C;">Error al conectar con la base oficial: ${escapeHtml(err.message || err)}</div>`;
+      }
+    }
+
+    function switchTab(tab) {
+      currentTab = tab;
+      document.getElementById('tab-startlist').classList.toggle('active', tab === 'startlist');
+      document.getElementById('tab-results').classList.toggle('active', tab === 'results');
+      populateCategories();
+      renderView();
+    }
+
+    function populateCategories() {
+      const select = document.getElementById('category-select');
+      const prev = select.value;
+      const source = currentTab === 'startlist' ? raceData.startLists : raceData.results;
+      const categories = Object.keys(source || {});
+
+      select.innerHTML = '';
+      if (categories.length === 0) {
+        select.innerHTML = '<option value="">Sin categorías disponibles</option>';
+        return;
+      }
+
+      categories.sort((a, b) => {
+        const aTC = a.startsWith('Todo Competidor');
+        const bTC = b.startsWith('Todo Competidor');
+        if (aTC && !bTC) return -1;
+        if (!aTC && bTC) return 1;
+        return 0;
+      });
+
+      categories.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        select.appendChild(opt);
+      });
+
+      if (categories.includes(prev)) select.value = prev;
+    }
+
+    function renderView() {
+      const category = document.getElementById('category-select').value;
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      const container = document.getElementById('content-area');
+      const sprintContainer = document.getElementById('sprint-area');
+
+      if (!category) {
+        container.innerHTML = '<div class="state-box">No hay categorías cargadas en la base de datos.</div>';
+        sprintContainer.innerHTML = '';
+        return;
+      }
+
+      if (currentTab === 'startlist') {
+        sprintContainer.innerHTML = '';
+        const list = raceData.startLists[category] || [];
+        const catInfo = raceData.categorias[category] || {};
+        const filtered = list.filter(p =>
+          p.dorsal.toLowerCase().includes(query) ||
+          p.nombre.toLowerCase().includes(query) ||
+          p.equipo.toLowerCase().includes(query) ||
+          p.uciId.toLowerCase().includes(query)
+        );
+
+        const rows = filtered.map(p => `
+          <tr>
+            <td><span class="dorsal-tag">${escapeHtml(p.dorsal)}</span></td>
+            <td>
+              <span class="rider-name">${escapeHtml(p.nombre)}</span>
+              <span class="rider-sub">UCI ID: ${escapeHtml(p.uciId || 'S/I')}</span>
+            </td>
+            <td>${escapeHtml(p.equipo)}</td>
+            <td>${escapeHtml(p.genero)}</td>
+          </tr>
+        `).join('');
+
+        const metaText = catInfo.horaLargada
+          ? `Hora Largada: ${catInfo.horaLargada} hrs • Giros: ${catInfo.giros} • Distancia: ${catInfo.distancia}`
+          : '';
+
+        container.innerHTML = `
+          <div class="category-banner">
+            <div>
+              <h2>Start List — ${escapeHtml(category)}</h2>
+              ${metaText ? `<div class="category-meta">${escapeHtml(metaText)}</div>` : ''}
+            </div>
+            <span class="count-pill">${filtered.length} Corredores</span>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:90px;">Dorsal</th>
+                  <th>Ciclista</th>
+                  <th>Equipo / Club</th>
+                  <th style="width:110px;">Género</th>
+                </tr>
+              </thead>
+              <tbody>${rows || '<tr><td colspan="4" style="text-align:center;padding:24px;">No hay corredores inscritos en esta categoría.</td></tr>'}</tbody>
+            </table>
+          </div>
+        `;
+      } else {
+        const list = raceData.results[category] || [];
+        const isTC = category.startsWith('Todo Competidor');
+        const leaderMs = (list.length > 0 && list[0].estado === 'OK') ? list[0].tiempoMs : null;
+
+        const ranked = list.map((r, i) => ({ ...r, rank: r.estado === 'OK' ? i + 1 : '-' }));
+        const filtered = ranked.filter(r =>
+          r.dorsal.toLowerCase().includes(query) ||
+          r.nombre.toLowerCase().includes(query) ||
+          r.equipo.toLowerCase().includes(query) ||
+          r.categoria.toLowerCase().includes(query)
+        );
+
+        const rows = filtered.map(r => {
+          let posHtml = `<span class="pos-badge">${r.rank}</span>`;
+          if (r.rank === 1) posHtml = `<span class="pos-badge pos-1">1°</span>`;
+          else if (r.rank === 2) posHtml = `<span class="pos-badge pos-2">2°</span>`;
+          else if (r.rank === 3) posHtml = `<span class="pos-badge pos-3">3°</span>`;
+          else if (isTC && (r.rank === 4 || r.rank === 5)) posHtml = `<span class="pos-badge pos-top5">${r.rank}°</span>`;
+
+          const timeHtml = r.estado === 'OK'
+            ? `<span class="time-cell">${escapeHtml(r.tiempoStr)}</span>`
+            : `<span class="status-badge status-${escapeHtml(r.estado)}">${escapeHtml(r.estado)}</span>`;
+
+          const gapHtml = r.estado === 'OK'
+            ? (r.rank === 1 ? 'Líder' : (leaderMs !== null ? '+' + formatGap(r.tiempoMs - leaderMs) : '—'))
+            : '—';
+
+          return `
+            <tr>
+              <td>${posHtml}</td>
+              <td><span class="dorsal-tag">${escapeHtml(r.dorsal)}</span></td>
+              <td>
+                <span class="rider-name">${escapeHtml(r.nombre)}</span>
+                <span class="rider-sub">UCI: ${escapeHtml(r.uciId || 'S/I')}${isTC ? ' • ' + escapeHtml(r.categoria) : ''}</span>
+              </td>
+              <td>${escapeHtml(r.equipo)}</td>
+              <td>${timeHtml}</td>
+              <td class="gap-cell">${gapHtml}</td>
+            </tr>
+          `;
+        }).join('');
+
+        container.innerHTML = `
+          <div class="category-banner">
+            <div>
+              <h2>Resultados Oficiales — ${escapeHtml(category)}</h2>
+            </div>
+            <span class="count-pill">${filtered.length} Clasificados</span>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:65px;">Pos.</th>
+                  <th style="width:85px;">Dorsal</th>
+                  <th>Ciclista</th>
+                  <th>Equipo / Club</th>
+                  <th style="width:120px;">Tiempo</th>
+                  <th style="width:100px;">Dif.</th>
+                </tr>
+              </thead>
+              <tbody>${rows || '<tr><td colspan="6" style="text-align:center;padding:24px;">Aún no hay tiempos oficiales registrados en esta categoría.</td></tr>'}</tbody>
+            </table>
+          </div>
+        `;
+
+        const allSprints = raceData.metasVolantes || [];
+        const filteredSprints = allSprints.filter(s =>
+          s.metaSprint.toLowerCase().includes(query) ||
+          s.dorsal.toLowerCase().includes(query) ||
+          s.nombre.toLowerCase().includes(query) ||
+          s.equipo.toLowerCase().includes(query)
+        );
+
+        const sprintRows = filteredSprints.map(s => `
+          <tr>
+            <td><strong>${escapeHtml(s.metaSprint)}</strong></td>
+            <td><span class="dorsal-tag">${escapeHtml(s.dorsal || 'S/D')}</span></td>
+            <td>
+              <span class="rider-name">${escapeHtml(s.nombre)}</span>
+              <span class="rider-sub">${escapeHtml(s.categoria)}</span>
+            </td>
+            <td>${escapeHtml(s.equipo)}</td>
+          </tr>
+        `).join('');
+
+        sprintContainer.innerHTML = `
+          <div class="category-banner" style="border-left-color: var(--magenta);">
+            <div>
+              <h2>⚡ Resultados — Metas Volantes (Sprint)</h2>
+              <div class="category-meta">Élite Varones Todo Competidor (Sprint 1 y 2) • Máster Varones (Sprint 1)</div>
+            </div>
+            <span class="count-pill">${filteredSprints.length} Ganadores</span>
+          </div>
+          <div class="table-card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Meta Volante / Sprint</th>
+                  <th style="width:90px;">Dorsal</th>
+                  <th>Ciclista Ganador</th>
+                  <th>Equipo / Club</th>
+                </tr>
+              </thead>
+              <tbody>${sprintRows || '<tr><td colspan="4" style="text-align:center;padding:24px;">Aún no hay metas volantes registradas.</td></tr>'}</tbody>
+            </table>
+          </div>
+        `;
+      }
+    }
+
+    function formatGap(diffMs) {
+      const totalSec = Math.floor(diffMs / 1000);
+      const h = Math.floor(totalSec / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+      const s = totalSec % 60;
+      const mm = String(m).padStart(2, '0');
+      const ss = String(s).padStart(2, '0');
+      return h > 0 ? `${h}:${mm}:${ss}` : `${mm}:${ss}`;
+    }
+
+    function escapeHtml(text) {
+      if (text === null || text === undefined) return '';
+      return String(text)
+        .replace(/&/g, '&')
+        .replace(/</g, '<')
+        .replace(/>/g, '>')
+        .replace(/"/g, '"');
+    }
+  </script>
+</body>
+</html>
